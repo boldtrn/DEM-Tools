@@ -86,7 +86,7 @@ def arr2img(ar):
     """
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
 
-    return Image.fromstring('RGBA', (ar.shape[1], ar.shape[0]), (g,g,g,g))
+    return Image.frombuffer('RGBA', (ar.shape[1], ar.shape[0]), (g,g,g,g))
 
 def slope2bytes(slope):
     """ Convert slope from floating point to 8-bit.
