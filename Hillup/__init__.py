@@ -88,11 +88,7 @@ def arr2img(ar):
     arA = ar
 
     for index,value in numpy.ndenumerate( arA ):
-        value = fabs(128 - value)
-        if value > 100:
-            value = 255
-        else:
-            value = value / 3
+        value = .5 * fabs(128 - value)
 
         arA[index] = value
 
