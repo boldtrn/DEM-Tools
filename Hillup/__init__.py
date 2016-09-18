@@ -85,9 +85,9 @@ def arr2img(ar):
     """ Convert Numeric.array to PIL.Image.
     """
 
-    #for index,value in numpy.ndenumerate( ar ):
-    #    value = fabs(128 - value)
-    #    ar[index] = [value,0]
+    for index,value in numpy.ndenumerate( ar ):
+        if ar[index] == 255:
+            ar[index] = 225
 
     img = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     img = img.convert("LA")
