@@ -82,7 +82,7 @@ def render_tile(source_dir, coord, min_zoom):
         flat = numpy.array([pi/2], dtype=float)
         flat = shade_hills(flat, flat)[0]
         # exp = log(0.5) / log(flat)
-        exp = log(0.7) / log(flat)
+        exp = log(1) / log(flat)
         
         shaded = numpy.power(shaded, exp)
 
