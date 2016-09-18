@@ -86,7 +86,7 @@ def arr2img(ar):
     """
 
     for index,value in numpy.ndenumerate( ar ):
-        if ar[index] == 255:
+        if ar[index] >= 250:
             ar[index] = 225
 
     img = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
