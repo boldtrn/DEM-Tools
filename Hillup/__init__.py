@@ -89,15 +89,12 @@ def arr2img(ar):
 
     for index,value in numpy.ndenumerate( arA ):
         value = fabs(128 - value)
-        if value < 5:
-            value = 230
-
-        arA[index] = 2
+        arA[index] = value
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
 
-    return Image.merge('RGBA', (g,g,g,g))
+    return Image.merge('RGBA', (g,g,g,a))
 
 def slope2bytes(slope):
     """ Convert slope from floating point to 8-bit.
