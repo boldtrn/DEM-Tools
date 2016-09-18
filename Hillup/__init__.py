@@ -96,7 +96,7 @@ def arr2img(ar):
 
     for y in xrange(img.size[1]):
         for x in xrange(img.size[0]):
-                pixdata[x, y] = (pixdata[x, y], 0)
+                pixdata[x, y] = (pixdata[x, y,0], 0)
 
 
             #a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
