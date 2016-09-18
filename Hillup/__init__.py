@@ -85,11 +85,11 @@ def arr2img(ar):
     """ Convert Numeric.array to PIL.Image.
     """
 
-        #for index,value in numpy.ndenumerate( arA ):
-    #    value = fabs(128 - value)
-    #    arA[index] = value
+    for index,value in numpy.ndenumerate( ar ):
+        value = fabs(128 - value)
+        ar[index] = (value,0)
 
-    return Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
+    return Image.fromstring('LA', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     #a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
 
     #return Image.merge('RGBA', (g,g,g,a))
