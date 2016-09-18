@@ -89,6 +89,11 @@ def arr2img(ar):
 
     for index,value in numpy.ndenumerate( arA ):
         value = fabs(128 - value)
+        if value < 30:
+            value = 0
+        else:
+            value = value * 1.5
+
         arA[index] = value
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
