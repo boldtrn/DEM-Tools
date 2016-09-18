@@ -94,8 +94,8 @@ def arr2img(ar):
 
         arA[index] = value
 
-    for index,value in numpy.ndenumerate( ar ):
-        ar[index] = 255 - value
+    #for index,value in numpy.ndenumerate( ar ):
+    #    ar[index] = 255 - value
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
