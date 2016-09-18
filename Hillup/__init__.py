@@ -99,6 +99,7 @@ def arr2img(ar):
                 val = pixdata[x, y][0]
                 pixdata[x, y] = (val, 0)
 
+    return img
 
             #a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
 
