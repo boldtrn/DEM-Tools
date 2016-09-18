@@ -90,7 +90,7 @@ def arr2img(ar):
     for index,value in numpy.ndenumerate( arA ):
         value = fabs(128 - value)
         if value < 5:
-            value = 245
+            value = 230
 
         arA[index] = 2
 
