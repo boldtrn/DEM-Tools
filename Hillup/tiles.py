@@ -98,7 +98,7 @@ def render_tile(source_dir, coord, min_zoom):
             
             shaded = shaded[top:bottom, left:right]
         
-        return arr2img(0xFF * shaded.clip(0, 1)).resize((w, h), resample)
+        return arr2img(0xFF * shaded.clip(0, 1, 2, 3)).resize((w, h), resample)
     
     raise Exception('Unable to find a suitable DEM tile for tile %d/%d/%d at zoom %d or above.' % (original.zoom, original.column, original.row, min_zoom))
 
