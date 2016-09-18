@@ -1,4 +1,4 @@
-from math import pi, sin, cos
+from math import pi, sin, cos, fabs
 from os import unlink, close
 from tempfile import mkstemp
 from os.path import exists
@@ -87,8 +87,8 @@ def arr2img(ar):
 
     arA = ar
 
-    for index,value in ndenumerate( arA.cells ):
-        value = abs(128 - value)
+    for index,value in numpy.ndenumerate( arA.cells ):
+        value = fabs(128 - value)
         arA.cells[index] = value
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
