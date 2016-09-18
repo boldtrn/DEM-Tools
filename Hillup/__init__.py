@@ -92,7 +92,7 @@ def arr2img(ar):
         if value < 30:
             value = 0
         else:
-            value = value * 1.5
+            value = value * 2
 
         arA[index] = value
 
