@@ -90,6 +90,7 @@ def arr2img(ar):
     #    ar[index] = [value,0]
 
     img = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
+    return img
     img = img.convert("LA")
 
     pixdata = img.load()
@@ -97,7 +98,7 @@ def arr2img(ar):
     for y in xrange(img.size[1]):
         for x in xrange(img.size[0]):
                 val = pixdata[x, y][0]
-                op = int(1.7*(fabs(128-val)))
+                op = int(1.9*(fabs(128-val)))
                 pixdata[x, y] = (val, op)
 
     return img
