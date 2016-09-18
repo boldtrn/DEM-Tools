@@ -89,10 +89,10 @@ def arr2img(ar):
 
     for index,value in numpy.ndenumerate( arA ):
         value = fabs(128 - value)
-        if value < 30:
-            value = 0
+        if value > 100:
+            value = 255
         else:
-            value = value / 2
+            value = value / 3
 
         arA[index] = value
 
