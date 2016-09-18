@@ -85,8 +85,8 @@ def arr2img(ar):
     """ Convert Numeric.array to PIL.Image.
     """
 
-    for y in xrange(ar.shape[1]):
-        for x in xrange(ar.shape[1]):
+    for y in range(ar.shape[1]):
+        for x in range(ar.shape[1]):
             val = ar[x, y]
             ar[x, y] = (val, val, val, 0)
 
