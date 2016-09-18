@@ -85,16 +85,19 @@ def arr2img(ar):
     """ Convert Numeric.array to PIL.Image.
     """
 
-    arA = ar
+    for y in xrange(ar.shape[1]):
+        for x in xrange(ar.shape[1]):
+            val = ar[x, y]
+            ar[x, y] = (val, val, val, 0)
 
-    for index,value in numpy.ndenumerate( arA ):
-        value = fabs(128 - value)
-        arA[index] = value
+    #for index,value in numpy.ndenumerate( arA ):
+    #    value = fabs(128 - value)
+    #    arA[index] = value
 
-    g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
-    a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
+    return Image.fromstring('RGBA', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
+    #a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
 
-    return Image.merge('RGBA', (g,g,g,a))
+    #return Image.merge('RGBA', (g,g,g,a))
 
 def slope2bytes(slope):
     """ Convert slope from floating point to 8-bit.
