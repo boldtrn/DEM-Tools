@@ -87,7 +87,7 @@ def arr2img(ar):
 
     for index,value in numpy.ndenumerate( ar ):
         value = fabs(128 - value)
-        ar[index] = (value,0)
+        ar[index] = [value,0]
 
     return Image.fromstring('LA', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     #a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
