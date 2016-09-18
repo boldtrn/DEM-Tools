@@ -97,7 +97,7 @@ def arr2img(ar):
     for y in xrange(img.size[1]):
         for x in xrange(img.size[0]):
                 val = pixdata[x, y][0]
-                op = 2*(fabs(128-val))
+                op = int(2*(fabs(128-val)))
                 pixdata[x, y] = (val, op)
 
     return img
