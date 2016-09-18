@@ -85,7 +85,11 @@ def arr2img(ar):
     """ Convert Numeric.array to PIL.Image.
     """
 
-    arA = 128 - ar;
+    arA = ar
+
+    for index,value in ndenumerate( arA.cells ):
+        value = abs(128 - value)
+        arA.cells[index] = value
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
