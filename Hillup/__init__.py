@@ -92,7 +92,7 @@ def arr2img(ar):
         if value < 5:
             value = 0
 
-        arA[index] = 255
+        arA[index] = 0
 
     g = Image.fromstring('L', (ar.shape[1], ar.shape[0]), ar.astype('b').tostring())
     a = Image.fromstring('L', (ar.shape[1], ar.shape[0]), arA.astype('b').tostring())
